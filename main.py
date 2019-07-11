@@ -214,34 +214,24 @@ class Breakout:
         fontSurface = self.__font.render("SCORE: " + str(self.__score) +
                                          "    LIVES: " + str(self.__lives), True,
                                          (255, 255, 255))
-        self.__screen.blit(fontSurface, (205, 5))
+        self.__screen.blit(fontSurface, (245, 5))
 
     def __message(self):
         pygame.draw.rect(self.__screen, (0, 0, 0), (40, 270, 640, 100))
         if self.__state == 0:
-            directionsMsg = "Clear all the bricks by bouncing" + \
-                            " the ball on the block"
-            directionsMsgSurface = self.__font.render(directionsMsg, True,
-                                                      (255, 255, 255))
-            self.__screen.blit(directionsMsgSurface, (50, 270))
-
             message = "Press SPACE to launch the ball or Q to quit"
-
             arrowKeyMsg = "Use ARROW KEYS to move the block"
             arrowKeyMsgSurface = self.__font.render(arrowKeyMsg, True,
                                                     (255, 255, 255))
-            self.__screen.blit(arrowKeyMsgSurface, (120, 330))
+            self.__screen.blit(arrowKeyMsgSurface, (200, 290))
 
         elif self.__state == 2:
-            if self.__mode == "Story":
-                message = "You won! Press Q to continue story mode"
-            else:
                 message = "You won! Press ENTER to play again or Q to quit"
         else:
             message = "Game over. Press ENTER to play again or Q to quit"
 
         fontSurface = self.__font.render(message, True, (255, 255, 255))
-        self.__screen.blit(fontSurface, (100, 300))
+        self.__screen.blit(fontSurface, (170, 270))
 
     def runBreakout(self):
         while not self.__completed:
@@ -288,9 +278,9 @@ class Breakout:
 
             self.__displayScoreLives()
 
-            self.__block = pygame.draw.rect(self.__screen, (255, 255, 225),
+            self.__block = pygame.draw.rect(self.__screen, (0, 128, 255),
                                             self.__block)
-            self.__ball = pygame.draw.circle(self.__screen, (255, 105, 180),
+            self.__ball = pygame.draw.circle(self.__screen, (255, 255, 255),
                                              (self.__ball.left + 7,
                                               self.__ball.top + 7), 7)
 
